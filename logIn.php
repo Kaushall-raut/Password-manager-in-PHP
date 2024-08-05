@@ -60,10 +60,10 @@ session_start();
         height: 30rem;
         border-radius: 20px;
         /* border: 1px solid black; */
-        display: flex;
+        /* display: flex;
         justify-content: center;
         flex-direction: column;
-        align-items: center;
+        align-items: center; */
         background-color: rgba(255, 255, 255, 0.4);
         /* background-color: rgba(255, 255, 255, 0.4); */
         backdrop-filter: blur(5px);
@@ -82,6 +82,7 @@ session_start();
       #newdiv{
         width: 70%;
       }
+ 
     </style>
 </head>
 <body>
@@ -137,22 +138,40 @@ if($conn=mysqli_connect("localhost","root","","passwordmanager")){
 
     
     
-    <div class="container" id="mainDiv">
+    <div class="container table-responsive" id="mainDiv">
 
-    <div class="form-floating">
-          <input
-            type="password"
-            class="form-control"
-            id="floatingPassword"
-            placeholder="Password"
-            name="LogInPass"
-          />
-          <label for="floatingPassword"
-            >Password <i class="fa-solid fa-lock"></i
-          ></label>
-        </div>
     
-        
+    <table class="table table-striped table-hover ">
+      <thead class="table-dark">
+        <tr>
+          <th>Account Name </th>
+          <th>User Name </th>
+          <th>Password </th>
+          <th>Update </th>
+          <th>Delete </th>
+        </tr>
+
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            google
+          </td>
+          <td>
+            kaushal
+          </td>
+          <td>
+          5345
+          </td>
+          <td>
+            <a href="#"><button>Update</button></a>
+          </td>
+          <td>
+          <a href="#"><button>delete</button></a>
+          </td>
+        </tr>
+      </tbody>
+</table>
         </div>
         
     </div>
