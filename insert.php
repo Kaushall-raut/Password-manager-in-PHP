@@ -34,7 +34,7 @@ $InsertCmd="insert into `$Uname` (`accountname`, `UserName`, `passwords`) values
 
 mysqli_query($InsertConn,$InsertCmd);
 // session_destroy();
-// header("location:logIn.php");
+header("location:logIn.php");
  }else{
     echo "something went wrong" ;
  }

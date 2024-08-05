@@ -153,23 +153,33 @@ if($conn=mysqli_connect("localhost","root","","passwordmanager")){
 
       </thead>
       <tbody>
+        <?php
+        $userDataView="select * from `$logName`";
+        $data=mysqli_query($UserConnection,$userDataView);
+
+        while ($result=mysqli_fetch_array($data)) {
+
+        
+        ?>
         <tr>
           <td>
-            google
+            <?php echo  $result['accountname'];?>
           </td>
           <td>
-            kaushal
+            <?php echo $result['UserName']?>
           </td>
           <td>
-          5345
+          <?php echo $result['passwords']?>
           </td>
           <td>
-            <a href="#"><button>Update</button></a>
+            <a href="update.php?Account=<?php echo $result['accountname'];?>& username=<?php  echo $result['UserName'];?> & pass=<?php echo $result['passwords']?>"><button>Update</button></a>
           </td>
           <td>
-          <a href="#"><button>delete</button></a>
+          <a href="delete.php?Account=<?php echo $result['accountname'];?>& username=<?php  echo $result['UserName'];?> & pass=<?php echo $result['passwords']?>"><button>delete</button></a>
           </td>
         </tr>
+       
+     <?php }?>
       </tbody>
 </table>
         </div>

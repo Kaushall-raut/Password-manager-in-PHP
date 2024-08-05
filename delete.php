@@ -1,3 +1,8 @@
+<?php 
+echo $_REQUEST['Account'];
+echo $_REQUEST['username'];
+echo $_REQUEST['pass'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,7 +101,7 @@
 
 
 
-    <h2 class="mb-5 text-center">Insert username and password </h2>
+    <h2 class="mb-5 text-center">Delete username and password </h2>
     
     <div class="container" id="mainDiv">
       <form action="insert.php" method="post">
@@ -142,7 +147,7 @@
      </div>
     
         
-     <button class="btn btn-primary mt-3">Save</button>
+     <button class="btn btn-primary mt-3">Delete</button>
     <!-- </div> -->
         
    
