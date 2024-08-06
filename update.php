@@ -1,7 +1,9 @@
 <?php 
-echo $_REQUEST['Account'];
-echo $_REQUEST['username'];
-echo $_REQUEST['pass'];
+session_start();
+// echo $_SESSION['logName'];
+$tableName=$_SESSION['logName'];
+// echo $_REQUEST['username'];
+// echo $_REQUEST['pass'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -104,7 +106,23 @@ echo $_REQUEST['pass'];
     <h2 class="mb-5 text-center">update username and password </h2>
     
     <div class="container" id="mainDiv">
-      <form action="insert.php" method="post">
+      <form action="<?php $PHP_SELF ?>" method="post">
+
+      <div class="form-floating mb-3">
+    <input
+              type="text"
+              class="form-control"
+              id="floatingInput"
+              placeholder="Enter your User name"
+              name="sno"
+              value=<?php echo $_REQUEST['id']?>
+            />
+           
+            <label for="floatingInput"
+              >Sr no.  <i class="fa-solid fa-user-secret"></i
+            ></label>
+   </div>
+
    <div class="form-floating mb-3">
     <input
               type="text"
@@ -112,6 +130,7 @@ echo $_REQUEST['pass'];
               id="floatingInput"
               placeholder="Enter your User name"
               name="AccName"
+              value=<?php echo $_REQUEST['AccName']?>
             />
            
             <label for="floatingInput"
@@ -127,6 +146,7 @@ echo $_REQUEST['pass'];
             id="floatingPassword"
             placeholder="Password"
             name="UserName"
+            value=<?php echo $_REQUEST['UserName']?>
           />
           <label for="floatingPassword"
             >Username <i class="fa-solid fa-user"></i
@@ -140,6 +160,7 @@ echo $_REQUEST['pass'];
             id="floatingPassword"
             placeholder="Password"
             name="YourPassword"
+            value=<?php echo $_REQUEST['YourPassword']?>
           />
           <label for="floatingPassword"
             >Password <i class="fa-solid fa-lock"></i
@@ -147,7 +168,10 @@ echo $_REQUEST['pass'];
      </div>
     
         
-     <button class="btn btn-primary mt-3">Update</button>
+     <a href="display.php">
+
+       <button name="update" class="btn btn-primary mt-3">Update</button>
+     </a>
     <!-- </div> -->
         
    
@@ -168,6 +192,31 @@ echo $_REQUEST['pass'];
     ></script>
 </body>
 </html>
+
+<?php
+$updatedAccountName=$_REQUEST['AccName'];
+$updatedUserName=$_REQUEST['UserName'];
+$updatedPassword=$_REQUEST['YourPassword'];
+$sno=$_REQUEST['id'];
+
+$conn=mysqli_connect("localhost","root","","userpassworddata");
+if(isset($_REQUEST['update'])){
+
+  if($conn){
+      $cmd="update `$tableName` set `accountname`='$updatedAccountName' , `UserName`='$updatedUserName' , `passwords`='$updatedPassword' where `id`='$sno'";
+      
+      mysqli_query($conn,$cmd);
+      // header("location:display.php");
+      echo "<script>";
+      ?>
+    window.location.href="display.php";
+      <?php
+      echo "</script>";
+    }
+
+}
+
+?>
 
 
 

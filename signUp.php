@@ -38,6 +38,7 @@ if($password===$confirmPassword){
                 // ! this section creates a user table so he can insert his/her data in that table 
 
                 $UserCmd="CREATE TABLE $UserName (
+                id integer PRIMARY KEY AUTO_INCREMENT,
                     accountname varchar(30),
                     UserName varchar(20) ,
                     passwords varchar(20)  )";
@@ -52,7 +53,7 @@ if($password===$confirmPassword){
                     }else{
                         echo "error";
                     }
-                 echo " <A href='signUp.html'>go back</A>";
+                 echo " <A href='logIn.html'>go back</A>";
                  echo "</script>";
             }else{
 
@@ -69,7 +70,7 @@ if($password===$confirmPassword){
             ?>
             Swal.fire("User successfully sign up ");
             <?php
-             echo " <A href='signUp.html'>go back</A>";
+             echo " <A href='login.html'>go back</A>";
             echo "</script>";
              }else{
             // echo "something went wrong try again";

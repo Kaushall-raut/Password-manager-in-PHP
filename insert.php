@@ -19,7 +19,8 @@ $Uname=$_SESSION['logName'];  //?this is user name data
 echo $Pass;
 
 
- 
+ echo $_SESSION['logName'];
+ echo $_SESSION['logPass'];
 
 //  $logName= $_POST['LogInName'];
 // ! Connecting to database
@@ -28,13 +29,14 @@ echo $Pass;
  if($InsertConn){
    // session_start();
    // echo "$Uname";
-echo "connected";
+// echo "connected";
 
 $InsertCmd="insert into `$Uname` (`accountname`, `UserName`, `passwords`) values('$AccName','$username','$Pass') ";
 
 mysqli_query($InsertConn,$InsertCmd);
 // session_destroy();
-header("location:logIn.php");
+// echo "<a href='display.php'>go back</a>";
+header("refresh:5; url=display.php");
  }else{
     echo "something went wrong" ;
  }
