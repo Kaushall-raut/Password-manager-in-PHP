@@ -187,7 +187,7 @@ $UserConnection;
             <a href="update.php?AccName=<?php echo $result['accountname'];?>& UserName=<?php  echo $result['UserName'];?> & YourPassword=<?php echo $result['passwords']?> &id=<?php echo $result['id'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
           </td>
           <td>
-          <a href="delete.php?Account=<?php echo $result['accountname'];?>& username=<?php  echo $result['UserName'];?> & pass=<?php echo $result['passwords']?>"><i class="fa-solid fa-trash"></i></a>
+          <a href="delete.php?AccName=<?php echo $result['accountname'];?>& UserName=<?php  echo $result['UserName'];?> & YourPassword=<?php echo $result['passwords']?> &id=<?php echo $result['id'] ?>"><i class="fa-solid fa-trash"></i></a>
           </td>
         </tr>
        
